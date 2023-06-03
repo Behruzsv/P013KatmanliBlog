@@ -1,0 +1,82 @@
+﻿@model HomePageViewModel
+@{
+    ViewData["Title"] = "Anasayfa";
+}
+
+<header class="py-5 bg-light border-bottom mb-4">
+    <div class="container">
+        <div class="text-center my-5">
+            <h1 class="fw-bolder">Blog sayfama hoş geldiniz!</h1>
+            <p class="lead mb-0">En Yeni Haberlere Buradan Ulaşabilirsiniz</p>
+        </div>
+    </div>
+</header>
+
+
+<div class="row">
+  
+    <div class="col-lg-8">
+        <!-- Featured blog post-->
+        <partial name="_PostPartial" model="Model.Posts" />
+        <!-- Nested row for non-featured blog posts-->
+        <div class="row">
+            <div class="col-lg-6">
+                <!-- Blog post-->
+                <partial name="_BlogPostPartial" model="Model.Posts" />
+            </div>
+            <div class="col-lg-6">
+                <!-- Blog post-->
+                <partial name="_BlogPostPartial" model="Model.Posts" />
+            </div>
+        </div>
+        <!-- Pagination-->
+        <nav aria-label="Pagination">
+            <hr class="my-0">
+            <ul class="pagination justify-content-center my-4">
+                <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">En Yeni</a></li>
+                <li class="page-item active" aria-current="page"><a class="page-link" href="#!">1</a></li>
+                <li class="page-item"><a class="page-link" href="#!">2</a></li>
+                <li class="page-item"><a class="page-link" href="#!">3</a></li>
+                <li class="page-item disabled"><a class="page-link" href="#!">...</a></li>
+                <li class="page-item"><a class="page-link" href="#!">15</a></li>
+                <li class="page-item"><a class="page-link" href="#!">En Eski</a></li>
+            </ul>
+        </nav>
+    </div>
+
+
+
+    <!-- Side widgets-->
+    <div class="col-lg-4">
+        <!-- Search widget-->
+        <div class="card mb-4">
+            <div class="card-header">Ara...</div>
+            <div class="card-body">
+                <div class="input-group">
+                    <input class="form-control" type="text" placeholder="Bir şey yazın..." aria-label="Enter search term..." aria-describedby="button-search">
+                    <button class="btn btn-primary" id="button-search" type="button">Ara!</button>
+                </div>
+            </div>
+        </div>
+        <!-- Categories widget-->
+        <div class="card mb-4">
+            <div class="card-header">Kategoriler</div>
+            <div class="card-body">
+                <div class="row">
+                    <partial name="_CategoriesWidgetPartial" model="Model.Categories" />
+                </div>
+            </div>
+        </div>
+        <!-- Side widget-->
+        <div class="card mb-4">
+            <div class="card-header">Günlük Bilgiler</div>
+            <div class="card-body">
+                Mozart, Johann Sebastian Bach ve Ludwig van Beethoven gibi ünlü bestecilerin müziği, klasik müzik tarihinin en önemli eserleri arasında yer almaktadır. Bu bestecilerin eserleri hala bugün bile büyük beğeniyle dinlenmektedir.
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

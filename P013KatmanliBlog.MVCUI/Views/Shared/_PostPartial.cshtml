@@ -1,0 +1,16 @@
+﻿@model IEnumerable<Post>
+
+@foreach (var item in Model)
+	{
+            <!-- Featured blog post-->
+            <div class="card mb-4">
+        <img class="card-img-top" src="/Img/@item.ImageUrl" @*alt="..."*@>
+                <div class="card-body">
+                    <div class="small text-muted">@item.CreateDate</div>
+                    <h2 class="card-title">@item.Title</h2>
+                    <p class="card-text">@item.Comments</p>
+                    <a class="btn btn-primary" href="/Posts/Detail/@item.Id">İncele →</a>
+                </div>
+            </div>
+	}
+

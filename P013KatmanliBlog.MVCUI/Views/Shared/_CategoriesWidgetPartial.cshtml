@@ -1,0 +1,19 @@
+﻿@model IEnumerable<Category>
+
+@foreach (var item in Model)
+{
+
+    <div class="col-sm-6">
+        <ul class="list-unstyled mb-0">
+            <li>
+                <a href="">
+                    @item.Name
+                </a>
+            </li>
+
+        </ul>
+    </div>
+}
+
+
+
