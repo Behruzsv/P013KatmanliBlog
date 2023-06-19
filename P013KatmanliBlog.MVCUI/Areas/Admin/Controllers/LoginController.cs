@@ -16,11 +16,13 @@ namespace P013KatmanliBlog.MVCUI.Areas.Admin.Controllers
             {
                 _service = service;
             }
-            public IActionResult Index()
-            {
-                return View();
-            }
-            [Route("Logout")]
+		public IActionResult Index(string ReturnUrl)
+		{
+			var model = new AdminLoginViewModel();
+			model.ReturnUrl = ReturnUrl;
+			return View(model);
+		}
+		[Route("Logout")]
             public async Task<IActionResult> Logout()
             {
                 await HttpContext.SignOutAsync(); 

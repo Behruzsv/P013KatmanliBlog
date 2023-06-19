@@ -77,13 +77,13 @@ namespace P013KatmanliBlog.Data.Migrations
                         new
                         {
                             Id = 1,
-                            CreateDate = new DateTime(2023, 5, 24, 18, 40, 27, 880, DateTimeKind.Local).AddTicks(5536),
+                            CreateDate = new DateTime(2023, 6, 18, 17, 33, 33, 650, DateTimeKind.Local).AddTicks(8338),
                             Email = "info@P013EStore.com",
                             IsActive = true,
                             IsAdmin = true,
                             Name = "Admin",
                             Password = "123",
-                            UserGuid = new Guid("623ef908-e830-4540-aa38-b56f85b1b151"),
+                            UserGuid = new Guid("54f0a83f-d752-4e54-bf57-d673cabe04f1"),
                             UserName = "Admin"
                         });
                 });

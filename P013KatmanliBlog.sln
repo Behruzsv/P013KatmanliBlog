@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P013KatmanliBlog.Data", "P0
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P013KatmanliBlog.Service", "P013KatmanliBlog.Service\P013KatmanliBlog.Service.csproj", "{0BEEFF17-D6E8-48FA-8427-0049BA702B97}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P013KatmanliBlog.WebAPI", "P013KatmanliBlog.WebAPI\P013KatmanliBlog.WebAPI.csproj", "{119A481A-3F5E-4AE3-AEB1-59D215CC5522}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P013KatmanliBlog.WebAPI", "P013KatmanliBlog.WebAPI\P013KatmanliBlog.WebAPI.csproj", "{119A481A-3F5E-4AE3-AEB1-59D215CC5522}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P013KatmanliBlog.WebAPIUsing", "P013KatmanliBlog.WebAPIUsing\P013KatmanliBlog.WebAPIUsing.csproj", "{1054B019-37C3-430E-B821-57F766479E02}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{119A481A-3F5E-4AE3-AEB1-59D215CC5522}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{119A481A-3F5E-4AE3-AEB1-59D215CC5522}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{119A481A-3F5E-4AE3-AEB1-59D215CC5522}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1054B019-37C3-430E-B821-57F766479E02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1054B019-37C3-430E-B821-57F766479E02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1054B019-37C3-430E-B821-57F766479E02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1054B019-37C3-430E-B821-57F766479E02}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

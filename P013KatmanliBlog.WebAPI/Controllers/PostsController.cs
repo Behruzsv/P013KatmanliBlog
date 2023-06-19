@@ -8,8 +8,9 @@ namespace P013KatmanliBlog.WebAPI.Controllers
 	[ApiController]
 	public class PostsController : ControllerBase
 	{
-		private readonly IService<Post> _service; // readonly nesneler sadece constructor metotta doldurulabilir
-		public PostsController(IService<Post> service)
+		private readonly IPostService _service;
+
+		public PostsController(IPostService service)
 		{
 			_service = service;
 		}
@@ -17,50 +18,60 @@ namespace P013KatmanliBlog.WebAPI.Controllers
 		[HttpGet]
 		public async Task<IEnumerable<Post>> GetAsync()
 		{
-			return await _service.GetAllAsync();
+			return await _service.GetPostsByIncludeAsync();
 		}
 
 		// GET api/<PostsController>/5
 		[HttpGet("{id}")]
 		public async Task<Post> GetAsync(int id)
 		{
-			return await _service.FindAsync(id);
+			return await _service.GetPostByIncludeAsync(id);
 		}
 
-		// GET api/<PostsController>/5
-		[HttpGet("{id}")]
-		public async Task<Post> PostAsync([FromBody]Post value)       
+        [HttpGet("GetSearch/{q}")]
+        public async Task<IEnumerable<Post>> GetSearchAsync(string q)
+        {
+            return await _service.GetPostsByIncludeAsync(p => p.IsActive && p.Title.Contains(q) || p.Content.Contains(q) ||p.Category.Name.Contains(q));
+        }
+
+        // POST api/<PostsController>
+        [HttpPost]
+		public async Task<IActionResult> PostAsync([FromBody] Post value)
 		{
 			await _service.AddAsync(value);
 			await _service.SaveAsync();
-			return value;
+			return Ok(value);
 		}
 
 		// PUT api/<PostsController>/5
-		[HttpPut("{id}")]
-		public async Task<ActionResult> PutAsync(int id, [FromBody] Post value)
+		[HttpPut]
+		public async Task<IActionResult> Put([FromBody] Post value)
 		{
 			_service.Update(value);
-			int sonuc = await _service.SaveAsync();
+			var sonuc = await _service.SaveAsync();
 			if (sonuc > 0)
 			{
 				return Ok(value);
 			}
-			return StatusCode(StatusCodes.Status304NotModified);
+			return Problem();
 		}
 
 		// DELETE api/<PostsController>/5
 		[HttpDelete("{id}")]
-		public ActionResult Delete(int id)
+		public async Task<ActionResult> DeleteAsync(int id)
 		{
-			var kayit = _service.Find(id);
-			if (kayit == null)
+			var data = await _service.FindAsync(id);
+			if (data == null)
 			{
-				return NoContent();
+				return NotFound();
 			}
-			_service.Delete(kayit);
-			_service.Save();
-			return Ok(kayit);
+			_service.Delete(data);
+			var sonuc = await _service.SaveAsync();
+			if (sonuc > 0)
+			{
+				return Ok(data);
+			}
+			return Problem();
 		}
 	}
 }
